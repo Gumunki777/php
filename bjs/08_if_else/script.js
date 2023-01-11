@@ -37,10 +37,26 @@ document.getElementById('btnOver').addEventListener('click', function () {
     }
 })
 
-document.getElementById('btnEqual').addEventListener('click', function () {
-    if (gameRun){
-        answerField.innerText = `Я всегда угадываю\n\u{1F60E}`
+document.getElementById('btnEqual').addEventListener('click', function () { 
+    if (gameRun) {
+        const phraseRandom = Math.round(Math.random() * 2);
+        switch (phraseRandom) {
+            case 0:
+                answerPhrase = `Я всегда угадываю\n\u{1F60E}`
+                break;
+
+            case 1:
+                answerPhrase = `Yes! \n\u{1F60E}`
+                break;
+
+            case 2:
+                answerPhrase = `Отлично!\n\u{1F973}`
+                break;
+
+        }
+        answerField.innerText = answerPhrase;
         gameRun = false;
     }
 })
+
 
